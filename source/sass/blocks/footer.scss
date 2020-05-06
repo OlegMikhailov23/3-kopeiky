@@ -1,0 +1,127 @@
+@import "../variables";
+@import "../mixin";
+
+.footer__wrapper {
+  @include container();
+  padding-top: 8%;
+  padding-bottom: 8%;
+  padding-left: 8%;
+  padding-right: 8%;
+  border-top: 2px solid #d15030;
+  background-color: #121619;
+}
+
+.footer__about {
+  margin-bottom: 20%;
+}
+
+.footer__about-title {
+  @include zero-style();
+  padding-bottom: 3%;
+  @include fontpref(1.3em, auto, 700);
+  color: $second-font-color;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.footer__about-article {
+  @include fontpref(1em, auto, 400);
+  padding-top: 8%;
+  color: $third-font-color;
+}
+
+.footer__links-title {
+  @include zero-style();
+  padding-bottom: 3%;
+  @include fontpref(1.3em, auto, 700);
+  color: $second-font-color;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__links__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 8%;
+  padding-bottom: 8%;
+  @include zero-style();
+
+  & li {
+    display: block;
+    padding-bottom: 5%;
+    width: 40%;
+
+    & a {
+      @include zero-style();
+      @include fontpref(1em, auto, 400);
+      color: $third-font-color;
+      transition: 0.2s linear;
+
+      &:hover {
+        color: $btn-bg-hover-color;
+        border-bottom: 1px solid $btn-bg-hover-color;
+      }
+    }
+  }
+}
+
+.footer__contacts-title {
+  @include zero-style();
+  padding-bottom: 3%;
+  @include fontpref(1.3em, auto, 700);
+  color: $second-font-color;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__contacts-article {
+    @include fontpref(1em, auto, 400);
+  padding-top: 8%;
+  color: $third-font-color;
+  & a {
+      @include zero-style();
+      @include fontpref(1em, auto, 400);
+      color: $third-font-color;
+      transition: 0.2s linear;
+
+      &:hover {
+        color: $btn-bg-hover-color;
+        border-bottom: 1px solid $btn-bg-hover-color;
+      }
+    }
+}
+
+.developer {
+  margin: 0 auto;
+  padding-top: 5%;
+  text-align: center;
+  & a {
+      @include zero-style();
+      @include fontpref(1em, auto, 400);
+      color: $third-font-color;
+      transition: 0.2s linear;
+
+      &:hover {
+        color: $btn-bg-hover-color;
+        border-bottom: 1px solid $btn-bg-hover-color;
+      }
+    }
+}
+
+@media ($tablet-widths) {
+  .footer__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 4%;
+  }
+
+  .footer__about,
+  .footer__links,
+  .footer__contacts {
+    width: 30%;
+    margin-bottom: 0;
+  }
+}

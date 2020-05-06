@@ -1,0 +1,96 @@
+@import "../variables";
+@import "../mixin";
+
+.intro__wrapper {
+  position: relative;
+  @include container();
+  min-height: 480px;
+  margin-top: -105px;
+  padding-bottom: 1%;
+  background-color: $background-colr-1;
+  @include cover-background("../img/intro-bg.jpg", top, center, scroll);
+}
+
+.intro__title {
+  padding-top: 155px;
+  padding-left: 2%;
+  padding-right: 2%;
+  @include fontpref(1.8em, 30px, 800);
+
+  color: $h1-color;
+  text-align: center;
+
+  & span {
+    color: $hover-font-color;
+  }
+}
+
+.intro__article {
+  @include zero-style();
+  padding-top: 47px;
+  color: $h1-color;
+  text-align: center;
+  @include fontpref(1.1em, 18px, 400);
+}
+
+.intro__btn {
+  @include link-btn();
+  margin-top: 65px;
+  width: 100%;
+}
+
+@media ($tablet-widths) {
+  .intro__wrapper {
+    height: 700px;
+    margin-top: -130px;
+    @include cover-background("../img/intro-tablet.jpg", top, center, scroll);
+
+    &::before {
+      @include pseudo();
+      bottom: -7%;
+      left: 7%;
+      @include cover-background("../img/intro-thing.png", top, center, scroll);
+      width: 260px;
+      height: 445px;
+    }
+  }
+
+  .intro-flex-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 45%;
+    width: 50%;
+  }
+
+  .intro__title {
+    padding-top: 240px;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: left;
+    @include fontpref(36px, 38px, 800);
+  }
+
+  .intro__article {
+    @include zero-style();
+    padding-left: 21%;
+    padding-top: 40px;
+    text-align: left;
+    @include fontpref(1.2em, 18px, 400);
+  }
+
+  .intro__btn {
+    width: 58%;
+  }
+}
+
+@media ($desktop-widths) {
+  .intro__title {
+    @include fontpref(42px, 46px, 800);
+  }
+
+  .intro__wrapper::before {
+    bottom: -5%;
+    width: 360px;
+    height: 585px;
+  }
+}

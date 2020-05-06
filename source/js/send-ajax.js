@@ -1,77 +1,60 @@
-$(function(){
-    $('#modal-form').submit(function(e){
-        e.preventDefault(); //это чтобы форма не отправлялась через браузер, только по AJAX
-        var formdata='name='+$('#name').val()+'&phone='+$('#phone').val()+'&message='+$('#message').val();
-        //запишем все данные формы в переменную data
-        $.ajax({
-            url: 'send.php',
-            data: formdata,
-            type: 'post',
-            success: function(respond){
-                $(".modal-content").css('display', 'none') &&
-                $(".modal-background").css('display', 'block') &&
-                $(".success-message").css('display', 'block') && $("#name").val("") && $("#phone").val("") && $("#message").val("");
-            },
-            error: function(){
-                alert('Произошла ошибка. Повторите попытку позже.');
-            }
-        });
-    });
-});
-
 $(function () {
-    $('#introForm').submit(function (e) {
-        e.preventDefault(); //это чтобы форма не отправлялась через браузер, только по AJAX
-        var formdata = 'introName=' + $('#introName').val() + '&intro-form-tel=' + $('#intro-form-tel').val();
-        //запишем все данные формы в переменную data
-        $.ajax({
-            url: 'sendIntro.php',
-            data: formdata,
-            type: 'post',
-            success: function (respond) {
-                $(".modal-background").css('display', 'block') && $(".success-message").css('display', 'block') && $("#introName").val("") && $("#intro-form-tel").val("");
-            },
-            error: function () {
-                alert('Произошла ошибка. Повторите попытку позже.');
-            }
-        });
-    });
-});
+  var ESC_KEYCODE = 27;
+  var modalBg = document.querySelector('.modal-background');
+  var successMessage = document.querySelector('#success-box');
+  var errorMessage = document.querySelector('#error-box');
+  var closeBtnSucces = document.querySelector('#succes-close-btn');
+  var closeBtnError = document.querySelector('#error-close-btn');
 
-$(function () {
-    $('#form-btm').submit(function (e) {
-        e.preventDefault(); //это чтобы форма не отправлялась через браузер, только по AJAX
-        var formdata = 'name-btm=' + $('#name-btm').val() + '&intro-form-tel-bottom=' + $('#intro-form-tel-bottom').val();
-        //запишем все данные формы в переменную data
-        $.ajax({
-            url: 'sendBtm.php',
-            data: formdata,
-            type: 'post',
-            success: function (respond) {
-                $(".modal-background").css('display', 'block') && $(".success-message").css('display', 'block') && $("#introName").val("") && $("#intro-form-tel").val("");
-            },
-            error: function () {
-                alert('Произошла ошибка. Повторите попытку позже.');
-            }
-        });
-    });
-});
 
-$(function () {
-    $('#calcCarpet').submit(function (e) {
-        e.preventDefault(); //это чтобы форма не отправлялась через браузер, только по AJAX
-        var formdata = 'material=' + ($(".calculator__choose-material-item input").filter(':checked').val()) + '&square=' + $('#totalSquare').text() + '&add1=' + $("#add1").filter(':checked').val() + '&add2=' + $("#add2").filter(':checked').val() + '&add3=' + $("#add3").filter(':checked').val() + '&add4=' + $("#add4").filter(':checked').val() + '&add5=' + $("#add5").filter(':checked').val() + '&price=' + $('#calcPrice').text() + '&tel=' + $('#calcTel').val();
-        //запишем все данные формы в переменную data
-        $.ajax({
-            url: 'calcForm.php',
-            data: formdata,
-            type: 'post',
-            success: function (respond) {
-                $(".modal-background").css('display', 'block') && $(".success-message").css('display', 'block') && $("#introName").val("") && $("#intro-form-tel").val("");
-            },
-            error: function () {
-                alert('Произошла ошибка. Повторите попытку позже.');
-            }
-        });
+  var closeSucces = function () {
+    errorMessage.classList.add('succes-content-hide');
+    successMessage.classList.add('succes-content-hide');
+    document.removeEventListener('mouseup', closeIffield);
+    document.removeEventListener('keydown', onEscPress);
+    setTimeout(function () {
+      modalBg.style.display = 'none';
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+      errorMessage.classList.remove('succes-content-hide');
+      successMessage.classList.remove('succes-content-hide');
+    }, 200);
+  };
+
+  var onEscPress = function (evt) {
+    if (evt.keyCode === ESC_KEYCODE) {
+      closeSucces();
+    }
+  };
+
+  var closeIffield = function (evt) {
+    if (evt.target === modalBg) {
+      closeSucces();
+    }
+  };
+
+  closeBtnSucces.addEventListener('click', closeSucces);
+  closeBtnError.addEventListener('click', closeSucces);
+
+
+  $('#contacts__form').submit(function (e) {
+    e.preventDefault(); //это чтобы форма не отправлялась через браузер, только по AJAX
+    var formdata = 'name=' + $('#name').val() + '&phone=' + $('#phone').val() + '&message=' + $('#message').val();
+    //запишем все данные формы в переменную data
+    $.ajax({
+      url: 'send.php',
+      data: formdata,
+      type: 'post',
+      success: function (respond) {
+        document.addEventListener('mouseup', closeIffield);
+        document.addEventListener('keydown', onEscPress);
+        $("#success-box").css('display', 'block') && $(".modal-background").css('display', 'block') && $("#name").val("") && $("#phone").val("") && $("#message").val("");
+      },
+      error: function () {
+        document.addEventListener('mouseup', closeIffield);
+        document.addEventListener('keydown', onEscPress);
+        $("#error-box").css('display', 'block') && $(".modal-background").css('display', 'block');
+      }
     });
+  });
 });

@@ -1,0 +1,128 @@
+@import "../variables";
+@import "../mixin";
+
+.gallery__wrapper {
+  @include container();
+  background: url('../img/bg-template2.jpg') repeat;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-top: 2px solid #d15030;
+  z-index: 2;
+}
+
+.gallery__title {
+  position: relative;
+  display: block;
+  @include zero-style();
+  @include fontpref(2em, 30px, 700);
+  text-align: center;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  padding-left: 1%;
+  padding-right: 1%;
+  color: $h2-color;
+  z-index: 10;
+  @include cover-background("../img/title-arrow.png", top, center, scroll);
+  background-size: 100% 100%;
+}
+
+.gallery__article {
+  @include zero-style();
+  @include fontpref(1.1em, 18px, 400);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5%;
+  text-align: left;
+}
+
+.gallery__unit-container {
+  display: flex;
+  flex-direction: column;
+  @include padding-left-right(1%, 1%);
+  margin: 5%;
+  min-height: auto;
+  border: 1px solid rgb(217, 217, 217);
+  overflow: hidden;
+  background: url('../img/bg-template.jpg') repeat;
+  box-shadow: 0 0 5px 0px #232323;
+}
+
+.gallery__pic {
+  @include padding-top-bottom(10px, 10px);
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.gallery__article p {
+  @include zero-style();
+  @include font-size(18px, 23px);
+}
+
+.owl-prev,
+.owl-next {
+  position: absolute;
+  width: 50px;
+  height: 70px;
+  top: 43%;
+  background-color: rgba(30, 32, 32, 0.5) !important;
+  background-size: 90% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  & span {
+  font-size: 0;
+  }
+}
+
+.owl-prev {
+  left: 0;
+  background-image: url("../img/arrows-left.png") !important;
+
+}
+
+.owl-next {
+  right: 0;
+  background-image: url("../img/arrows-right.png") !important;
+}
+
+.owl-nav {
+  margin-top: 0 !important;
+}
+
+@media ($tablet-widths) {
+  .gallery__wrapper {
+    padding-bottom: 8%;
+  }
+
+  .gallery__title {
+  text-align: center;
+  width: 45%;
+  height: 90px;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-bottom: 3%;
+  color: $h2-color;
+}
+
+.gallery__article {
+  padding-bottom: 5%;
+}
+
+  .gallery__pic img {
+    max-height: 480px;
+  }
+}
+
+@media ($desktop-widths) {
+  .gallery__title {
+    width: 30%;
+    padding-bottom: 1%;
+  }
+
+  .gallery__article {
+  padding-top: 2%;
+  padding-bottom: 1%;
+}
+}

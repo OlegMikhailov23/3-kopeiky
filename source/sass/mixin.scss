@@ -1,3 +1,11 @@
+// Настройки шрифта
+@mixin fontpref($size, $lineheigth, $weight) {
+  font-size: $size;
+  line-height: $lineheigth;
+  font-family: inherit;
+  font-weight: $weight
+}
+
 // Бэкграунд на всю ширину экрана.
 // пример: @include cover-background("../img/main.jpg", top, center, scroll);
 @mixin cover-background($img-uri, $background-top: "center", $background-left: "center", $background-attachment: "fixed") {
@@ -166,8 +174,18 @@
 }
 
 @mixin container() {
-  width: 320px;
-  margin: 0 auto;
+    max-width: 768px;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+
+  @media ($tablet-widths) {
+    max-width:1140px;
+  }
+
+  @media ($desktop-widths) {
+    max-width: 1440px;
+  }
 }
 
 @mixin zero-style() {
@@ -241,27 +259,29 @@
   display: block;
   margin: 0 auto;
   @include padding-left-right (20px, 20px);
-  @include padding-top-bottom (15px, 15px);
-  @include font-size (18px, 30px);
+  @include padding-top-bottom (12px, 12px);
+  @include font-size (1em, 30px);
   text-transform: uppercase;
-  color: $main-font-color;
-  background-color: $submit-btn-bg;
+  color: $btn-font-color;
+  background-color: $btn-background-color;
   font-family: inherit;
   outline: none;
-  border-radius: 30px;
-  color: $main-font-color;
+  border-radius: 7px;
   cursor: pointer;
   text-align: center;
   text-decoration: none !important;
 
   &:hover {
-    background-color: #ffeb81;
+    background-color: $btn-bg-hover-color;
     transition: 0.3s;
-    color: $btn-hover-color;
+    font-weight: 700;
+    color: $btn-font-color;
+
   }
 
   &:active {
     color: rgba(255, 255, 255, 0.3);
-    transition: 0.3s;
+    transition: 0.1s;
+    @include bsh(0px,3px,1px,0,#151414,inset);
   }
 }

@@ -1,5 +1,5 @@
 
-$tablet-widths: "min-width: 720px";
+$tablet-widths: "min-width: 768px";
 $desktop-widths: "min-width: 1140px";
 $retina: "(min-resolution: 144dpi), (min-resolution: 1.5dppx)";
 //--- Font-size...
@@ -12,23 +12,29 @@ $main-line-height: 20px;
 
 $main-font-color: #2d2d2d;
 
-$h1-color: #000000;
+$second-font-color: #d4d5c7;
 
-$h2-colr: #000000;
+$third-font-color: rgba(255, 255, 255, 0.4);
 
-$h3-color: #000000;
+$btn-font-color: #d4d5c7;
 
-$h4-colr: #000000;
+$h1-color: #d4d5c7;
 
-$article-colr: #000000;
+$h2-color: #d15030;
 
-$hover-font-color: #ffffff;
+$h3-color: #d15030;
+
+$h4-color: #000000;
+
+$article-color: #000000;
+
+$hover-font-color: #d15030;
 
 $active-font-color: #000000;
 
 //--- Btn-colors...
 
-$btn-bg-hover-color: #000000;
+$btn-bg-hover-color: #cb6248;
 
 $btn-bg-active-color: #000000;
 
@@ -40,11 +46,13 @@ $submit-btn-bg: #ffe13e;
 
 $body-bg: #ececec;
 
-$background-colr-1: #049aff;
+$background-colr-1: #81b3b2;
 
 $background-colr-2: #e7ebfc;
 
 $background-colr-3: #ffffff;
+
+$btn-background-color: #d15030;
 
 
 @keyframes modal-bounce {

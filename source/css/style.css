@@ -1798,6 +1798,11 @@ ul.menu-left.collapse
     background: url('../img/СМП-804_29-03-2020_11-04-43.jpg') no-repeat top center scroll;
     background-size: cover;
 }
+.contacts__map iframe
+{
+    width: 100%;
+    height: 100%;
+}
 
 @keyframes modal-bounce
 {

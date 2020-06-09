@@ -36,7 +36,40 @@
 .intro__btn {
   @include link-btn();
   margin-top: 65px;
-  width: 100%;
+  width: 80%;
+}
+
+.intro__icons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+}
+
+.intro__icons__item {
+  width: 150px;
+  height: 100px;
+
+  background-size: 90% 78%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.intro__icons__item--1 {
+  background-image: url('../img/sitro.png');
+}
+
+.intro__icons__item--2 {
+  background-image: url('../img/crem.png');
+}
+
+.intro__icons__item--3 {
+  background-image: url('../img/dushes.png');
+}
+
+.intro__icons__item--4 {
+  background-image: url('../img/tarhun.png');
 }
 
 @media ($tablet-widths) {
@@ -44,26 +77,27 @@
     height: 700px;
     margin-top: -130px;
     @include cover-background("../img/intro-tablet.jpg", top, center, scroll);
-
     &::before {
       @include pseudo();
       bottom: -7%;
       left: 7%;
       @include cover-background("../img/intro-thing.png", top, center, scroll);
+      background-size: 90%;
       width: 260px;
       height: 445px;
+      z-index: 10;
     }
   }
 
   .intro-flex-container {
     display: flex;
     flex-direction: column;
-    margin-left: 45%;
-    width: 50%;
+    margin-left: 40%;
+    width: 55%;
   }
 
   .intro__title {
-    padding-top: 240px;
+    padding-top: 140px;
     padding-left: 0;
     padding-right: 0;
     text-align: left;
@@ -72,14 +106,46 @@
 
   .intro__article {
     @include zero-style();
-    padding-left: 21%;
+    padding-left: 15%;
     padding-top: 40px;
     text-align: left;
-    @include fontpref(1.2em, 18px, 400);
+    @include fontpref(1.3em, 24px, 400);
+    letter-spacing: 0.5px;
   }
 
   .intro__btn {
     width: 58%;
+  }
+
+  .intro__icons {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin-top: 30px;
+  }
+
+  .intro__icons__item {
+    width: 150px;
+    height: 90px;
+    background-size: 90% 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .intro__icons__item--1 {
+    background-image: url('../img/sitro.png');
+  }
+
+  .intro__icons__item--2 {
+    background-image: url('../img/crem.png');
+  }
+
+  .intro__icons__item--3 {
+    background-image: url('../img/dushes.png');
+  }
+
+  .intro__icons__item--4 {
+    background-image: url('../img/tarhun.png');
   }
 }
 
@@ -89,8 +155,17 @@
   }
 
   .intro__wrapper::before {
-    bottom: -5%;
+    // bottom: -5%;
     width: 360px;
-    height: 585px;
+    height: 600px;
   }
+
+    .intro__icons__item {
+      width: 170px;
+      height: 130px;
+
+      background-size: 95% 75%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
 }

@@ -3,20 +3,34 @@
 
 .cases__wrapper {
   @include container();
+  position: relative;
   background: url('../img/bg-template.jpg') repeat;
   padding-top: 10%;
   padding-left: 2%;
   padding-right: 2%;
   padding-bottom: 2%;
+  z-index: 2;
+  &::after {
+    @include pseudo();
+    position: absolute;
+    bottom: -260px;
+    right: 0;
+    width: 140px;
+    height: 450px;
+    @include cover-background("../img/cases-mobile.png", top, center, scroll);
+    z-index: -1;
+  }
 }
 
 .cases__title {
   @include zero-style();
+  position: relative;
   @include fontpref(2em, 30px, 700);
   text-align: center;
   padding-left: 1%;
   padding-right: 1%;
   color: $h2-color;
+  z-index: 2;
 }
 
 .cases__article {
@@ -63,7 +77,7 @@
 
 @media ($tablet-widths) {
   .cases__wrapper {
-    padding-top: 5%
+    padding-top: 5%;
   }
 
   .cases__title {
@@ -104,4 +118,36 @@
   margin-top: 65px;
   width: 40%;
 }
+
+.cases__items-item:first-child {
+  order: 2;
+}
+
+.cases__items-item:nth-child(2) {
+  order: 1;
+}
+
+.cases__items-item:nth-child(3) {
+  order: 3;
+}
+}
+
+@media ($desktop-widths) {
+  .cases__wrapper::after {
+          @include pseudo();
+          bottom: -280px;
+          right: 50px;
+          width: 300px;
+          height: 460px;
+          @include cover-background("../img/cases.png", top, center, scroll);
+  }
+
+  .cases__title {
+    padding-top: 1%;
+  }
+
+  .cases__items-item__title {
+    @include fontpref(1.7em, 26px, 700);
+  }
+
 }

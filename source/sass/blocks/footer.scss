@@ -18,7 +18,7 @@
 .footer__about-title {
   @include zero-style();
   padding-bottom: 3%;
-  @include fontpref(1.3em, auto, 700);
+  @include fontpref(1.3em, 1.3em, 700);
   color: $second-font-color;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 2px;
@@ -40,11 +40,11 @@
 
 .footer__links__list {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding-top: 8%;
-  padding-bottom: 8%;
+  padding-top: 5%;
+  padding-bottom: 5%;
   @include zero-style();
 
   & li {
@@ -95,6 +95,7 @@
   margin: 0 auto;
   padding-top: 5%;
   text-align: center;
+  color: $third-font-color;
   & a {
       @include zero-style();
       @include fontpref(1em, auto, 400);
@@ -123,5 +124,24 @@
   .footer__contacts {
     width: 30%;
     margin-bottom: 0;
+  }
+
+  .footer__links__list {
+    flex-direction: column;
+  }
+
+  .footer__links__list li {
+    width: 25%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+}
+
+@media ($desktop-widths) {
+  .footer__wrapper {
+      padding-top: 80px;
+      padding-bottom: 80px;
+      padding-left: 115px;
+      padding-right: 115px;
   }
 }
